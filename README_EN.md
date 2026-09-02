@@ -1,6 +1,6 @@
 # EOO Function Discussion
 
-## Background: Issues with the Current Formula
+
 
 ### Current EOO Formula
 
@@ -23,7 +23,7 @@ The current baseline is demand only, with no Safety Stock included. This implici
 
 ### Problem 2: The Time Window Does Not Align with the True Inventory Cycle
 
-Within a replenishment cycle, inventory levels are well above zero — and well above Safety Stock — for most of the time, because we need to cover demand for the next cycle.
+Within a replenishment cycle, inventory levels are well above zero — and well above Safety Stock — for most of the time, because we need to cover demand for the rest of the cycle.
 
 In the ideal scenario:
 - Inventory only briefly touches Safety Stock right before a replenishment order arrives, then immediately jumps to `Safety Stock + Replenishment Order`
@@ -35,7 +35,7 @@ In practice:
 
 ### Problem 3: The Calculation Start Date Is Not the Beginning of a True Inventory Cycle
 
-The EOO calculation starts from "today," which does not coincide with the beginning of any replenishment cycle — and the end of the window doesn't coincide with the end of a cycle either. This means the formula captures an incomplete inventory consumption interval, leading to two types of misclassification:
+The EOO calculation starts from "Each Monday," which does not coincide with the beginning of any replenishment cycle — and the end of the window doesn't coincide with the end of a cycle either. This means the formula captures an incomplete inventory consumption interval, leading to two types of misclassification:
 
 1. **Non-excess inventory flagged as EOO** → Canceling or reducing orders based on this result actually creates a shortage
 2. **Shortage misidentified as EOO** → A part that is already short appears to have excess inventory
